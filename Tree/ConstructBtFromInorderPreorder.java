@@ -17,6 +17,7 @@ public class ConstructBtFromInorderPreorder {
         }
     }
 
+    // Approach 1
     private static TreeNode buildTree(int[] preorder, int[] inorder) {
         Map<Integer, Integer> inorderMap = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
@@ -43,6 +44,39 @@ public class ConstructBtFromInorderPreorder {
         return root;
     }
 
+    // Approach 2
+    private static TreeNode buildTree2(int[] preorder, int[] inorder) {
+        int preorderIdx = 0;
+        return solve(preorder, inorder, preorderIdx, 0, inorder.length - 1);
+    }
+
+    private static TreeNode solve(int[] preorder, int[] inorder, int index, int inorderStart, int inorderEnd) {
+        //base case
+        if (index >= preorder.length || inorderStart > inorderEnd) {
+            return null;
+        }
+
+        int element = preorder[index];
+        TreeNode root = new TreeNode(element);
+
+        int position = findPosition(inorder, element);
+
+        root.left = solve(preorder, inorder, index + 1, inorderStart, position - 1);
+        root.right = solve(preorder, inorder, index + position - inorderStart + 1, position + 1, inorderEnd);
+
+        return root;
+    }
+
+    private static int findPosition(int[] inorder, int element) {
+        for (int i = 0; i < inorder.length; i++) {
+            if (inorder[i] == element) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     private static void printTree(TreeNode root) {
         if (root == null) {
             return;
@@ -57,7 +91,12 @@ public class ConstructBtFromInorderPreorder {
         int[] preorder = { 3, 9, 20, 15, 7 };
         int[] inorder = { 9, 3, 15, 20, 7 };
 
-        TreeNode root = buildTree(preorder, inorder);
-        printTree(root);
+        // Approach 1
+        // TreeNode root = buildTree(preorder, inorder);
+        // printTree(root);
+
+        // Aproach 2
+        TreeNode root2 = buildTree2(preorder, inorder);
+        printTree(root2);
     }
 }
