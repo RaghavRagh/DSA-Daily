@@ -49,7 +49,7 @@ public class ReverseLL {
         head = prev;
     }
     
-    private void printList(Node head) {
+    public void printList(Node head) {
         if (head == null) {
             System.out.println("List empty!");
             return;

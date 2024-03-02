@@ -1,14 +1,6 @@
+import NodeClass.Node;
+
 public class MergeTwoSortedList {
-
-    class Node {
-        int data;
-        Node next;
-
-        Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-    }
 
     // iterative approach
     public Node mergeTwoLists(Node list1, Node list2) {
@@ -49,10 +41,10 @@ public class MergeTwoSortedList {
 
         if (list1 != null && list2 != null) {
             if (list1.data < list2.data) {
-                list1.next = mergeTwoLists(list1.next, list2);
+                list1.next = mergeTwoLists2(list1.next, list2);
                 return list1;
             } else {
-                list2.next = mergeTwoLists(list1, list2.next);
+                list2.next = mergeTwoLists2(list1, list2.next);
                 return list2;
             }
         }
@@ -62,4 +54,37 @@ public class MergeTwoSortedList {
             
         return list1;
     }
+
+    private void printList(Node head) {
+        if (head == null) {
+            System.out.println("List empty!");
+            return;
+        }
+
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(curr.data + " ");
+            curr = curr.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        MergeTwoSortedList m = new MergeTwoSortedList();
+        Node head1 = new Node(1);
+        Node n2 = new Node(2);
+        Node n3 = new Node(3);
+
+        head1.next = n2;
+        n2.next = n3;
+
+        Node head2 = new Node(2);
+        Node n4 = new Node(4);
+        Node n5 = new Node(5);
+
+        head2.next = n4;
+        n4.next = n5;
+
+        Node head = m.mergeTwoLists2(head1, head2);
+        m.printList(head);
+        }
 }
