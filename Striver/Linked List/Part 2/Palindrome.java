@@ -1,3 +1,5 @@
+import Node.Node;
+
 public class Palindrome {
 
     // Approach 1

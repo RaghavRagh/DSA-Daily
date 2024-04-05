@@ -1,14 +1,16 @@
+import Node.Node;
+
 public class IntersectionOf2LL {
 
-    static class Node {
-        int data;
-        Node next;
+    // static class Node {
+    //     int data;
+    //     Node next;
 
-        Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-    }
+    //     Node(int data) {
+    //         this.data = data;
+    //         this.next = null;
+    //     }
+    // }
 
     static Node getIntersectionNode(Node headA, Node headB) {
         if (headA == null || headB == null) {
