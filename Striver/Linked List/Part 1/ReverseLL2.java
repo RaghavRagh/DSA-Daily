@@ -25,8 +25,40 @@ public class ReverseLL2 {
         return prev;
     }
 
+    // private Node reverseBetween(Node head, int left, int right) {
+    //     if(head == null || head.next == null) {
+    //         return head;
+    //     }
+
+    //     if (left == right) {
+    //         return head;
+    //     }
+
+    //     Node dummy = new Node(-1);
+    //     dummy.next = head;
+    //     Node prev = dummy;
+
+    //     for (int i = 1; i < left; i++) {
+    //         prev = prev.next;
+    //     }
+
+    //     Node leftNode = prev.next;
+    //     Node rightNode = leftNode;
+        
+    //     for (int i = left; i < right; i++) {
+    //         rightNode = rightNode.next;
+    //     }
+        
+    //     Node next = rightNode.next;
+    //     prev.next = reverse(leftNode);
+
+    //     leftNode.next = next;
+        
+    //     return head;
+    // }
+
     private Node reverseBetween(Node head, int left, int right) {
-        if(head == null || head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
 
@@ -43,20 +75,20 @@ public class ReverseLL2 {
         }
 
         Node leftNode = prev.next;
-        Node rightNode = leftNode;
-        
-        for (int i = left; i < right; i++) {
-            rightNode = rightNode.next;
+        Node next = prev;
+        for (int i = left; i <= right; i++) {
+            next = next.next;
         }
-        
-        Node next = rightNode.next;
-        prev.next = reverse(leftNode);
 
-        leftNode.next = next;
-        
+        Node rightNode = next.next;
+        next.next = null;
+        prev.next = reverse(prev.next);
+
+        leftNode.next = rightNode;
+
         return head;
     }
-
+    
     private void printList(Node head) {
         Node curr = head;
         while (curr != null) {
@@ -72,7 +104,7 @@ public class ReverseLL2 {
         head.next.next = r.new Node(3);
         head.next.next.next = r.new Node(4);
         head.next.next.next.next = r.new Node(5);
-        head.next.next.next.next.next = r.new Node(6);
+         head.next.next.next.next.next = r.new Node(6);
         // Node head = r.new Node(3);
         // head.next = r.new Node(5);
 
