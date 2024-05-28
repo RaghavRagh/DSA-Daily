@@ -1,4 +1,4 @@
-public class FindNthRootOfanInteger {
+public class NthRootOfanInteger {
 
     private static int NthRoot(int n, int m) {
         int low = 1;
@@ -35,8 +35,8 @@ public class FindNthRootOfanInteger {
     }
 
     public static void main(String[] args) {
-        int n = 4;
-        int m = 15;
+        int n = 3;
+        int m = 27;
         System.out.println(NthRoot(n, m));
     }
 }
