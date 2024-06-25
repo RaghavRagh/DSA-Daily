@@ -25,10 +25,10 @@ public class SubarraySumsDivisiblebyK {
 
         return count;
     }
-    
+
     public static void main(String[] args) {
-        int[] nums = {4,5,0,-2,-3,1};
+        int[] nums = { 4, 5, 0, -2, -3, 1 };
         int k = 5;
         System.out.println(subarraysDivByK(nums, k));
-    }    
+    }
 }

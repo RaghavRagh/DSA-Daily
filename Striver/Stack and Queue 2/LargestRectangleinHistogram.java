@@ -2,6 +2,14 @@ import java.util.Stack;
 
 public class LargestRectangleinHistogram {
 
+    // brute force
+    // take every rectange in a histogram
+    // for each height/length check left/right-height/length till the checking
+    // height is >= left/right height.
+    // cal area using (height * (left + right + 1)) and store it in max
+    // update max if new max greater > current max.
+    // return max
+
     // TC - O(n^2)
     // SC - O(1)
     private static int largestRectangleArea1(int[] heights) {
@@ -55,7 +63,8 @@ public class LargestRectangleinHistogram {
     }
 
     public static void main(String[] args) {
-        int[] heights = { 2, 1, 5, 6, 2, 3 };
+        int[] heights = { 2, 1, 5, 6, 2, 3, 1, 1, 1, 1, 1 };
+        // 0, 1, 2, 3, 4, 5
         // int[] heights = { 6, 1, 3, 1, 2 };
         System.out.println(largestRectangleArea2(heights));
     }

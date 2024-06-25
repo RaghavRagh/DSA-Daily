@@ -56,7 +56,7 @@ public class MedianOf2SortedArrays {
     private static double findMedianSortedArrays2(int[] nums1, int[] nums2) {
         int n1 = nums1.length;
         int n2 = nums2.length;
-        // we want to apply binary search on the shorter array
+        // apply binary search on the shorter array
         if (n1 > n2) {
             return findMedianSortedArrays2(nums2, nums1);
         }
