@@ -1,20 +1,26 @@
-import Node.Node;
-
 import java.util.ArrayList;
+
+import BinaryTree.Node;
 
 public class LeftView {
 
     private static ArrayList<Integer> leftView(Node root) {
         ArrayList<Integer> list = new ArrayList<>();
-        solve(root, list);
+        solve(root, 0, list);
         return list;
     }
 
-    private static void solve(Node root, ArrayList<Integer> list) {
-        if (root == null) return;
-        
-        list.add(root.value);
-        solve(root.left, list);
+    private static void solve(Node root, int level, ArrayList<Integer> list) {
+        if (root == null) {
+            return;
+        }
+
+        if (list.size() == level) {
+            list.add(root.value);
+        }
+
+        solve(root.left, level + 1, list);
+        solve(root.right, level + 1, list);
     }
 
     public static void main(String[] args) {
