@@ -26,7 +26,7 @@ public class UniquePaths {
     }
 
     public static void main(String[] args) {
-        int m = 3, n = 7;
+        int m = 3, n = 3;
         System.out.println(uniquePaths(m, n));
     }
 }

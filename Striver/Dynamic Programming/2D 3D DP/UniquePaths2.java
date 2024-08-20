@@ -5,8 +5,8 @@ public class UniquePaths2 {
         int n = grid[0].length;
         int[][] dp = new int[m][n];
         
-        // return solveMemoization(grid, m, n, 0, 0, dp);
-        return solveTabulation(grid, m, n, dp);
+        return solveMemoization(grid, m, n, 0, 0, dp);
+        // return solveTabulation(grid, m, n, dp);
     }
 
     private static int solveMemoization(int[][] grid, int m, int n, int i, int j, int[][] dp) {
@@ -29,9 +29,9 @@ public class UniquePaths2 {
         return dp[i][j];
     }
 
-    private static int solveTabulation(int[][] grid, int m, int n, int[][] dp) {
+    // private static int solveTabulation(int[][] grid, int m, int n, int[][] dp) {
         
-    }
+    // }
     
     public static void main(String[] args) {
         int[][] grid = new int[3][3];
