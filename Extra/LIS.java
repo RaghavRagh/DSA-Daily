@@ -8,8 +8,8 @@ public class LIS {
             Arrays.fill(row, -1);
         }
 
-        return solveTopdown(arr, 0, -1, dp);
-        // return solveBottomup(arr);
+        // return solveTopdown(arr, 0, -1, dp);
+        return solveBottomup(arr);
     }
 
     private static int solveTopdown(int[] arr, int curr, int prev, int[][] dp) {
@@ -34,15 +34,15 @@ public class LIS {
     private static int solveBottomup(int[] arr) {
         int[] dp = new int[arr.length];
         Arrays.fill(dp, 1);
-
+        
         for (int i = 1; i < dp.length; i++) {
-            for (int j = 0; j <= i; j++) {
+            for (int j = 0; j < i; j++) {
                 if (arr[j] < arr[i]) {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
         }
-
+        
         return Arrays.stream(dp).max().getAsInt();
     }
 

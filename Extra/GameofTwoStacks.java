@@ -1,44 +1,34 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GameofTwoStacks {
     private static int twoStacks(List<Integer> a, List<Integer> b, int maxSum) {
-        int currSum = 0, count = 0;
-        while (currSum <= maxSum) {
-            if (a.get(0) < b.get(0)) {
-                if (currSum + a.get(0) <= maxSum) {
-                    currSum += a.remove(0);
-                    count++;
-                } else {
-                    break;
-                }
-            } else {
-                if (currSum + b.get(0) <= maxSum) {
-                    currSum += b.remove(0);
-                    count++;
-                } else {    
-                    break;
-                }
+        int s1Count = 0, s2Count = 0, result = 0, totalSum = 0;
+        for (Integer num : a) {
+            if (totalSum + num > maxSum) {
+                break;
+            }
+            totalSum += num;
+            s1Count++;
+        }
+
+        result = s1Count;
+
+        for (Integer num : b) {
+            totalSum += num;
+            s2Count++;
+            while (totalSum > maxSum && s1Count > 0) {
+                totalSum -= a.get(s1Count - 1);
+                s1Count--;
             }
         }
 
-        return count;
+        return totalSum <= maxSum ? Math.max(s1Count + s2Count, result) : result;
     }
 
     public static void main(String[] args) {
-        List<Integer> a = new ArrayList<>();
-        a.add(4);
-        a.add(2);
-        a.add(4);
-        a.add(6);
-        a.add(1);
-
-        List<Integer> b = new ArrayList<>();
-        b.add(2);
-        b.add(1);
-        b.add(8);
-        b.add(5);
-
+        List<Integer> a = Arrays.asList(4, 2, 4, 6, 1);
+        List<Integer> b = Arrays.asList(2, 1, 8, 5);
         System.out.println(twoStacks(a, b, 10));
     }
 }
