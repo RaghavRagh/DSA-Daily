@@ -34,7 +34,7 @@ public class RotateArrayRight {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3, 4, 5 };
         // rotateArr1(arr, arr.length, 3);
-        rotateArr2(arr, arr.length, 3);
+        rotateArr2(arr, arr.length, 1);
         for (int i : arr) {
             System.out.print(i + " ");
         }

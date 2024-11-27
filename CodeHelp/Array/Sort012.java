@@ -7,7 +7,7 @@ public class Sort012 {
     }
 
     // Approach 1
-
+    // Dutch National Flag
     static void sort012(int[] arr) {
         int low = 0;
         int mid = 0;
