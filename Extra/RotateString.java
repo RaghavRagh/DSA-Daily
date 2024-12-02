@@ -5,7 +5,7 @@ public class RotateString {
             return false;
         }
 
-        String doubledStr = s + s;
+        // String doubledStr = s + s;
         return (s + s).contains(goal);
     }
 
