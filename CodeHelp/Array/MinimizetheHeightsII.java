@@ -7,12 +7,12 @@ public class MinimizetheHeightsII {
         Arrays.sort(arr);
         int max = 0, min = 0;
         int ans = arr[n - 1] - arr[0];
-        int largest = arr[n - 1] - k, smallest = arr[0] + k;
+        int smallest = arr[0], largest = arr[n - 1];
         
         for (int i = 0; i < n - 1; i++) {
-            min = Math.min(smallest, arr[i + 1] - k);
-            max = Math.max(largest, arr[i] + k);
-            if (min < 0) {
+            min = Math.min(smallest + k, arr[i + 1] - k);
+            max = Math.max(largest - k, arr[i] + k);
+            if (min < 0) {  
                 continue;
             }
             ans = Math.min(ans, max - min);

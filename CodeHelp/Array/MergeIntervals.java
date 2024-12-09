@@ -42,7 +42,7 @@ public class MergeIntervals {
     }
 
     // Approach 2
-    // TC - O(nlogn)j
+    // TC - O(nlogn)
     // SC - O(n)
     private static int[][] merge2(int[][] intervals) {
         if (intervals.length <= 1) {
