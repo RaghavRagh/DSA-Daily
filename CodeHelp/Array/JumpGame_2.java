@@ -1,9 +1,5 @@
 public class JumpGame_2 {
 
-    // private static int jump(int[] nums) {
-
-    // }
-
     static int minJumpsRecur(int i, int[] arr) {
         
         // Return 0 when last element is reached.

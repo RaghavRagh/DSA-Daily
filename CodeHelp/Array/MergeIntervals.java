@@ -1,6 +1,3 @@
-// 56
-// https://leetcode.com/problems/merge-intervals/description/
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -12,7 +9,6 @@ public class MergeIntervals {
     // TC - O(n^2)
     private static List<List<Integer>> merge1(int[][] intervals) {
 
-        // lambda of Comparator
         Arrays.sort(intervals, (int[] a, int[] b) -> {
             return a[0] - b[0];
         });
@@ -70,7 +66,7 @@ public class MergeIntervals {
 
     public static void main(String[] args) {
         // int[][] arr = { { 1, 3 }, { 2, 6 }, { 8, 10 }, { 15, 18 } };
-        int[][] arr = { { 2, 6 }, { 1, 4 }, { 8, 10 }, { 15, 18 } };
+        int[][] arr = { { 1, 5 }, { 2, 4 }, { 8, 10 }, { 15, 18 } };
         List<List<Integer>> list = merge1(arr);
         // list.forEach(System.out::print);
 
