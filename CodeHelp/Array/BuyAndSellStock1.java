@@ -1,4 +1,4 @@
-public class BuyAndSellStock {
+public class BuyAndSellStock1 {
 
     private static int maxProfit(int[] prices) {
         int maxProfit = 0, minCost = prices[0];
